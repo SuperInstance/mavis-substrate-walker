@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mavis-substrate-walker"
+version = "0.1.0"
+description = "A substrate-agnostic walker for the Quilt. STITCH/WITNESS/PROMOTE primitives; walks cellforge, moth-corpus, lexical-substrate, dict substrates."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Mavis", email = "mavis@superinstance.dev"},
+]
+license = {text = "MIT"}
+
+[project.scripts]
+mavis-substrate-walker = "mavis_substrate_walker.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
