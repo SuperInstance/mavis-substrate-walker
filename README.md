@@ -2,6 +2,23 @@
 
 **Substrate-agnostic walker for the Quilt.** STITCH / WITNESS / PROMOTE primitives; walks cellforge, moth-corpus, lexical-substrate, dict substrates.
 
+## Quickstart (30 seconds)
+
+```bash
+git clone https://github.com/SuperInstance/mavis-substrate-walker.git
+cd mavis-substrate-walker
+python -m venv .venv && source .venv/bin/activate
+pip install -e .
+
+# Try it — expected: 6 witnesses, 1 finding, "chain OK: True"
+python -m mavis_substrate_walker walk-dict '{"a":1,"b":2,"c":3}'
+
+# Full suite — expected: "15/15 tests passed (0 failed)"
+python run_tests.py
+```
+
+No dependencies beyond the standard library. If both expected outputs match, the walker is working.
+
 ## Doctrine
 
 A substrate is any computational system that emits and accepts receipts. The walker runs across substrates by emitting a receipted witness for each step.
@@ -61,7 +78,7 @@ result = walk_cellforge(wb)
 ```bash
 python -m mavis_substrate_walker walk-dict '{"a":1,"b":2,"c":3}'
 python -m mavis_substrate_walker walk-lexical 1.0,2.0,3.0,5.0
-python -m mavis_substrate_walker walk-corpus examples/corpus.jsonl
+python -m mavis_substrate_walker walk-corpus examples/corpus.jsonl   # bundled sample corpus
 ```
 
 ## Tests
