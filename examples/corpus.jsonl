@@ -1,0 +1,4 @@
+{"kind": "CORPUS/v1", "surface": "SURFACE/v1", "description": "Bundled sample corpus for the README quickstart"}
+{"step": 0, "payload": {"a": 1}}
+{"step": 1, "payload": {"b": 2}}
+{"step": 2, "payload": {"c": 3}}
