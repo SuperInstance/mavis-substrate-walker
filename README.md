@@ -29,13 +29,36 @@ Three primitives survive every layer of the Quilt:
 2. **WITNESS** — record an observation; emit a receipt; chain to its parents
 3. **PROMOTE** — graduate receipts from one tier to another
 
-This tracks three physical primitives in the deep-research foundations:
+This tracks three physical primitives in the deep-research foundations.
+The walker treats any system that can emit and accept receipts as a
+substrate — a Python dict qualifies; a quantum device qualifies.
 
 | physical primitive | inter-logistical primitive |
 |--------------------|----------------------------|
 | Geometry (entanglement → wormhole) | STITCH |
 | Time (Page-Wootters clock subsystem) | WITNESS |
 | Calculus-projection (Jacobson, Padmanabhan) | PROMOTE |
+
+## One walk, decoded
+
+`python -m mavis_substrate_walker walk-dict '{"a":1,"b":2,"c":3}'`
+produces six witnesses — every one hash-chained to its parents:
+
+```
+[0] load     loaded dict substrate, 24 bytes
+[1] walk     step 0: read_a (read) — 1 in, 1 out
+[2] walk     step 1: read_b (read) — 1 in, 1 out
+[3] walk     step 2: read_c (read) — 1 in, 1 out
+[4] promote  finding finding_dict_1_3 [positive]
+[5] save     saved dict substrate back
+chain.verify(): True
+```
+
+Line by line: **[0] STITCH-LOAD** crosses into the substrate and captures
+its state; **[1]–[3] WITNESS** record each step the substrate yields (one
+key-read each); **[4] PROMOTE** graduates the witness chain to a `Finding`
+because ≥3 steps agreed; **[5] STITCH-SAVE** crosses back out, state
+persisted. Six witnesses, one chain, zero un-receipted operations.
 
 ## Substrates
 
